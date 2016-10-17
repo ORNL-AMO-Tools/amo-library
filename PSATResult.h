@@ -1,3 +1,15 @@
+/**
+ * @file PSATResult.h
+ * @brief Function prototypes for the PSAT result fields
+ *
+ * This contains the prototypes for the PSAT results structure
+ * including getters and setters for the important fields.
+ * @author Subhankar Mishra (mishras)
+ * @author Gina Accawi (accawigk)
+ * @bug No known bugs.
+ * @
+ */
+
 //
 // Created by Accawi, Gina K. on 6/17/16.
 //
@@ -20,6 +32,11 @@ public:
             motor_(motor),
             financial_(financial),
             fieldData_(fieldData) {};
+
+    /**
+     * A structure
+     * Result structure captures the same fields for the existing as well as the optimal condition.
+     */
 
     struct result_ {
         double pumpEfficiency_;
