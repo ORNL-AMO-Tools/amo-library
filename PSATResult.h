@@ -56,6 +56,7 @@ public:
 
 
     double getAnnualSavingsPotential() const {
+
         return annualSavingsPotential_;
     }
 

@@ -3,10 +3,10 @@
 //
 
 #include "MotorShaftPower.h"
-#include "MotorEfficiency.h"
-#include "MotorPower.h"
-#include "MotorCurrent.h"
-#include "MotorPowerFactor.h"
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
 
 double MotorShaftPower::calculate() {
     if (loadEstimationMethod_ == FieldData::LoadEstimationMethod::POWER) {
@@ -21,6 +21,12 @@ double MotorShaftPower::calculate() {
             pf = motorPowerFactor.calculate();
             MotorPower motorPower(ratedVoltage_, current, pf);
             power = motorPower.calculate();
+//            cout<< setprecision(8) << tempLoadFraction_ ;
+//            cout<< " current: " << current;
+//            cout<< " eff:" << eff;
+//            cout<< " pf:" << pf;
+//            cout<< " power:" << power;
+//            cout << endl;
             if (power > fieldPower_ || tempLoadFraction_ > 1.5) {
                 powerE2 = power;
                 lf2 = tempLoadFraction_;

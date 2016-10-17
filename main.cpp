@@ -5,10 +5,10 @@ using namespace std;
 int main() {
 
     std::cout << "Hello, World!" << std::endl;
-    Pump pump(Pump::Style::END_SUCTION_ANSI_API, 1780, Pump::Drive::DIRECT_DRIVE, 1.00, 1.000, 2, Pump::Speed::NOT_FIXED_SPEED);
+    Pump pump(Pump::Style::END_SUCTION_ANSI_API, 90, 1780, Pump::Drive::DIRECT_DRIVE, 1.00, 1.000, 2, Pump::Speed::NOT_FIXED_SPEED);
     Motor motor(Motor::LineFrequency::FREQ60, 200, 1780, Motor::EfficiencyClass::SPECIFIED, 95, 460, 225.0, 0);
     Financial financial(1.000, 0.05);
-    FieldData fieldData(1840, 174.85, FieldData::LoadEstimationMethod::CURRENT, 150, 125.857, 480);
+    FieldData fieldData(1840, 174.85, FieldData::LoadEstimationMethod::POWER, 80, 125.857, 480);
 
     PSATResult psatResult(pump,motor,financial,fieldData);
     psatResult.calculateExisting();
@@ -36,6 +36,8 @@ int main() {
     cout << "Motor power: " << psatResult.getOptimal().motorPower_ << endl;
     cout << "Annual Energy: " << psatResult.getOptimal().annualEnergy_ << endl;
     cout << "Annual Cost: " << psatResult.getOptimal().annualCost_ << endl;
-    cout << "Estimated FLA: " << psatResult.getOptimal().estimatedFLA_ << endl;
+
+    cout << "getAnnualSavingsPotential: " << psatResult.getAnnualSavingsPotential() << endl;
+    cout << "getOptimizationRating: " << psatResult.getOptimizationRating() << endl;
 
 }
