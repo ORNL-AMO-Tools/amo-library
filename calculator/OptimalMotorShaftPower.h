@@ -32,7 +32,6 @@ public:
 private:
     double pumpShaftPower_;
     Pump::Drive drive_;
-    double motorShaftPower_;
 };
 
 

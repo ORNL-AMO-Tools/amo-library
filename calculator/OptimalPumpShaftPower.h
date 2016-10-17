@@ -5,7 +5,6 @@
 #ifndef AMO_LIBRARY_OPTIMALPUMPSHAFTPOWER_H
 #define AMO_LIBRARY_OPTIMALPUMPSHAFTPOWER_H
 
-#include "FluidPower.h"
 
 class OptimalPumpShaftPower {
 public:

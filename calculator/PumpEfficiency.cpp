@@ -9,8 +9,7 @@ double PumpEfficiency::calculate() {
      * Calculate fluid power in kW
      * Fluid power, kW = 0.746 * gpm * ft * specific gravity / 3961.38
      */
-    FluidPower fluidPower(specificGravity_,flowRate_,head_);
-    fluidPower_ = fluidPower.calculate();
+    fluidPower_ = 0.746 * flowRate_ * head_ * specificGravity_ / 3961.38;
     /*
      * Calculate fluid power in hp
      */
